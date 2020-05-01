@@ -4,7 +4,6 @@ import events.Handlers.GuildHandlers;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.jetbrains.annotations.NotNull;
 
 
 public class GuildWarEvents extends ListenerAdapter {
@@ -29,7 +28,7 @@ public class GuildWarEvents extends ListenerAdapter {
                 statement = handlers.info();
                 break;
             case "~joinGuild":
-                statement = handlers.joinGuild(user.getId());
+                statement = handlers.joinGuild(user.getName());
                 break;
             case "~queue":
                 statement = handlers.queue(user.getId());
