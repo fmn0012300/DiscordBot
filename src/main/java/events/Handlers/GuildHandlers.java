@@ -38,7 +38,7 @@ public class GuildHandlers {
         String result = "现在BOSS Stage：" + currBoss + "\n";
         result = result + "HP: " + currHp + "\n";
         result = result + currFighting + " 正在打，" + time + "开始的\n";
-        result = result + bossQ.peek() + " 做好准备\n";
+        result = result + bossQ.peek() + "做好准备\n";
         return result;
     }
 
@@ -50,14 +50,14 @@ public class GuildHandlers {
         if (member.add(id)) {
             return "Welcome @" + id;
         }
-        return "你已经在会里了";
+        return "你已在会里了";
     }
 
     /**
      * return guild member
      */
     public String guildMember() {
-        return "公会成员：" + member.toString();
+        return "公会人员：" + member.toString();
     }
 
     /**
@@ -65,7 +65,7 @@ public class GuildHandlers {
      */
     public String queue(String id) {
         if (bossQ.add(id)) {
-            return "已添加！加油~ @" + id;
+            return "已添加,加油~ @" + id;
         }
         return "有问题。。。";
     }
@@ -79,7 +79,7 @@ public class GuildHandlers {
             currFighting = id;
             bossQ.remove();
             time = java.time.LocalDateTime.now().toString();
-            return "加油！@" + id;
+            return "加油, @" + id;
         }
         return "还没到你哦~";
     }
@@ -101,11 +101,11 @@ public class GuildHandlers {
             for (String x: hanging) {
                 statement = statement + " @" + x;
             }
-            statement = statement + "可以下树了";
+            statement = statement + "下树了";
             hanging.clear();
         }
 
-        return "@" + id + " GJ~！" + statement;
+        return "@" + id + " GJ~" + statement;
     }
 
     /**

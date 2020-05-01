@@ -18,9 +18,9 @@ public class GuildWarEvents extends ListenerAdapter {
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         String command = event.toString();
 
-        if (command.charAt(0) != '~') {
-            return;
-        }
+
+        event.getChannel().sendMessage("hello").queue();
+
 
         User user = event.getAuthor();
         String[] breakup = command.split(" ");
@@ -42,7 +42,7 @@ public class GuildWarEvents extends ListenerAdapter {
                 try {
                     statement = handlers.end(Integer.parseInt(breakup[1]), user.getName());
                 } catch (Exception e) {
-                    statement = "格式错了~记得放数字";
+                    statement = "Wrong format";
                 }
                 break;
             case "~sos":
