@@ -29,23 +29,23 @@ public class GuildWarEvents extends ListenerAdapter {
                 statement = handlers.info();
                 break;
             case "~joinGuild":
-                statement = handlers.joinGuild(user.getName());
+                statement = handlers.joinGuild(user.getId());
                 break;
             case "~queue":
-                statement = handlers.queue(user.getName());
+                statement = handlers.queue(user.getId());
                 break;
             case "~start":
-                statement = handlers.start(user.getName());
+                statement = handlers.start(user.getId());
                 break;
             case "~end":
                 try {
-                    statement = handlers.end(Integer.parseInt(breakup[1]), user.getName());
+                    statement = handlers.end(Integer.parseInt(breakup[1]), user.getId());
                 } catch (Exception e) {
                     statement = "Wrong format";
                 }
                 break;
             case "~sos":
-                statement = handlers.sos(user.getName());
+                statement = handlers.sos(user.getId());
                 break;
             case "~guildMember":
                 statement = handlers.guildMember();

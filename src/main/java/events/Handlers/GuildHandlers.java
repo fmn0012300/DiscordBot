@@ -37,8 +37,8 @@ public class GuildHandlers {
     public String info() {
         String result = "Current BOSS Stage:" + currBoss + "\n";
         result = result + "HP: " + currHp + "\n";
-        result = result + currFighting + " is fighting, started at " + time + "\n";
-        result = result + bossQ.peek() + " get ready\n";
+        result = result + "<@" + currFighting + ">" + " is fighting, started at " + time + "\n";
+        result = result + "<@" + bossQ.peek() + ">" + " get ready\n";
         return result;
     }
 
@@ -48,7 +48,7 @@ public class GuildHandlers {
      */
     public String joinGuild(String id) {
         if (member.add(id)) {
-            return "Welcome @" + id;
+            return "Welcome <@" + id + ">";
         }
         return "You already joined";
     }
@@ -65,7 +65,7 @@ public class GuildHandlers {
      */
     public String queue(String id) {
         if (bossQ.add(id)) {
-            return "Added, fight! @" + id;
+            return "Added, fight! <@" + id +">";
         }
         return "Some problems...";
     }
@@ -79,7 +79,7 @@ public class GuildHandlers {
             currFighting = id;
             bossQ.remove();
             time = java.time.LocalDateTime.now().toString();
-            return "Fight! @" + id;
+            return "Fight! <@" + id + ">";
         }
         return "Not your turn~";
     }
@@ -99,13 +99,13 @@ public class GuildHandlers {
             currHp = BOSS[currBoss];
 
             for (String x: hanging) {
-                statement = statement + " @" + x;
+                statement = statement + " <@" + x + ">";
             }
             statement = statement + "It's over!";
             hanging.clear();
         }
 
-        return "@" + id + " GJ~" + statement;
+        return "<@" + id + "> GJ~" + statement;
     }
 
     /**
@@ -114,7 +114,7 @@ public class GuildHandlers {
      */
     public String sos(String id) {
         hanging.add(id);
-        return "@everyone " + id + " is dead";
+        return "<@everyone> " + id + " is dead";
     }
 
     /**
