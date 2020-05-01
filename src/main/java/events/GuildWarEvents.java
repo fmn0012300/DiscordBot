@@ -15,13 +15,12 @@ public class GuildWarEvents extends ListenerAdapter {
      * @param event event to be handled
      */
     @Override
-    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
-        String command = event.toString();
+    public void onMessageReceived(MessageReceivedEvent event) {
+        String command = event.getMessage().getContentRaw();
 
-
-        event.getChannel().sendMessage("hello").queue();
-
-
+        if (command.charAt(0) != '~') {
+            return;
+        }
         User user = event.getAuthor();
         String[] breakup = command.split(" ");
         String statement;

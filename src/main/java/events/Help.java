@@ -2,14 +2,14 @@ package events;
 
 public class Help {
     public static String getHelp() {
-        return "~info : 确认现在BOSS血量 阶段,\n" +
-                "~joinGuild : 加入公会, \n" +
-                "~queue : 排刀\n" +
-                "~start : 开始干\n" +
-                "~end 伤害: 打完了 伤害\n" +
-                "~sos : 挂树上了\n" +
-                "~guildMember: 确认工会人员\n" +
-                "~save : 存现在所有data\n" +
-                "~load : 读data";
+        return "~info : current boss stage and hp,\n" +
+                "~joinGuild : join guild\n" +
+                "~queue : line up for your turn\n" +
+                "~start : go fuck it up\n" +
+                "~end damage : report damage dealt\n" +
+                "~sos : I'm dying help!\n" +
+                "~guildMember: check member\n" +
+                "~save : save data\n" +
+                "~load : load data";
     }
 }

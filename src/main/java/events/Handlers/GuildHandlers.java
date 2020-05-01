@@ -35,10 +35,10 @@ public class GuildHandlers {
      * i.e stage, hp, who's fighting, who's dead, who've fought, who's next, time since last person started
      */
     public String info() {
-        String result = "现在BOSS Stage：" + currBoss + "\n";
+        String result = "Current BOSS Stage:" + currBoss + "\n";
         result = result + "HP: " + currHp + "\n";
-        result = result + currFighting + " 正在打，" + time + "开始的\n";
-        result = result + bossQ.peek() + "做好准备\n";
+        result = result + currFighting + " is fighting, started at " + time + "\n";
+        result = result + bossQ.peek() + " get ready\n";
         return result;
     }
 
@@ -50,14 +50,14 @@ public class GuildHandlers {
         if (member.add(id)) {
             return "Welcome @" + id;
         }
-        return "你已在会里了";
+        return "You already joined";
     }
 
     /**
      * return guild member
      */
     public String guildMember() {
-        return "公会人员：" + member.toString();
+        return "Guild Member" + member.toString();
     }
 
     /**
@@ -65,9 +65,9 @@ public class GuildHandlers {
      */
     public String queue(String id) {
         if (bossQ.add(id)) {
-            return "已添加,加油~ @" + id;
+            return "Added, fight! @" + id;
         }
-        return "有问题。。。";
+        return "Some problems...";
     }
 
     /**
@@ -79,9 +79,9 @@ public class GuildHandlers {
             currFighting = id;
             bossQ.remove();
             time = java.time.LocalDateTime.now().toString();
-            return "加油, @" + id;
+            return "Fight! @" + id;
         }
-        return "还没到你哦~";
+        return "Not your turn~";
     }
 
     /**
@@ -101,7 +101,7 @@ public class GuildHandlers {
             for (String x: hanging) {
                 statement = statement + " @" + x;
             }
-            statement = statement + "下树了";
+            statement = statement + "It's over!";
             hanging.clear();
         }
 
@@ -114,7 +114,7 @@ public class GuildHandlers {
      */
     public String sos(String id) {
         hanging.add(id);
-        return "@everyone " + id + "已死有事烧纸";
+        return "@everyone " + id + " is dead";
     }
 
     /**
